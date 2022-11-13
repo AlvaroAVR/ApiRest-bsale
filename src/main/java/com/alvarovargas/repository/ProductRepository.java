@@ -10,11 +10,11 @@ import com.alvarovargas.model.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-	@Query("SELECT p FROM Product p")
+	@Query("SELECT p FROM Product p")//query para consulta en la base de datos
     List<Product> listarProductos();
     
     @Query("SELECT p FROM Product p WHERE " +
-            "p.name LIKE CONCAT('%',:query, '%')")
+            "p.name LIKE CONCAT('%',:query, '%')")//query para consultar en la base datos
     List<Product> buscarProductos(String query);
     
 }

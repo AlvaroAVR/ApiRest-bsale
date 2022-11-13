@@ -11,18 +11,18 @@ import com.alvarovargas.repository.ProductRepository;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-	@Autowired
+	@Autowired//inyeccion de dependencias para ProductService
 	private ProductRepository productRepository;
 	
 	@Override
 	public List<Product> listarProductos() {
-		List<Product> productos = productRepository.listarProductos();
-    	return productos;
+		List<Product> productos = productRepository.listarProductos();//buscando todos los productos a traves de productRepository
+    	return productos; // retorna la lista de todos los productos
 	}
 
 	@Override
 	public List<Product> buscarProductos(String query) {
-		List<Product> products = productRepository.buscarProductos(query);
-		return products;
+		List<Product> products = productRepository.buscarProductos(query);//buscando los productos que coincidan con el parametro enviado a traves de productRepository
+		return products;//retorna el listado de productos que coincidan con la busqueda
 	}
 }

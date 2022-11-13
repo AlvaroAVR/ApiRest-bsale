@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 import com.alvarovargas.model.Category;
 import com.alvarovargas.repository.CategoryRepository;
 
-@Service
+@Service//declarando y configurando una clase de servicio Spring
 public class CategoryServiceImpl implements CategoryService {
 	
-	@Autowired
+	@Autowired//inyeccion de dependencias del repositorio CategoryRepository
 	private CategoryRepository categoryRepository;
 
 	@Override
 	public List<Category> listarCategory() {
-		return categoryRepository.findAll();
+		return categoryRepository.findAll();//retorna todas las categorias a traves de categoryRepository
 	}
 
 }

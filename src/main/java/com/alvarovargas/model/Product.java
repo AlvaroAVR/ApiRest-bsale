@@ -13,15 +13,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@Entity
+@NoArgsConstructor//crea mediante lombok un contructor sin parametros
+@AllArgsConstructor//crea un constructor con parametros, todos los argumentos
+@Getter//crea los getter
+@Setter//crea los setter
+@Entity//especifica que la clase es una entidad correspondiente a una tabla de la base de datos
 @Table(name = "product")//etiqueta para identificar a que tabla referncia esta entidad
 public class Product {
 
-	@Id//etiqueta para asignar el id de la entidad 
+	//atributos
+	
+	@Id//indica cual atributo es el id columna en la base de datos
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
@@ -29,7 +31,7 @@ public class Product {
 	private float price;
 	private Integer discount;
 	
-	@ManyToOne
-	@JoinColumn(name = "category")
+	@ManyToOne //indica que es una relacion muchos a uno 
+	@JoinColumn(name = "category")//para indicar con que columna se une
 	private Category category;
 }
